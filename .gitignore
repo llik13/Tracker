@@ -1,0 +1,48 @@
+## VS-файли
+.vs/
+*.user
+*.suo
+
+## OS-файли
+.DS_Store
+Thumbs.db
+
+## Output-папки
+bin/
+obj/
+
+## Rider
+.idea/
+
+## Конфігурації
+*.swp
+*.bak
+*.tmp
+
+## NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.psmdcp
+
+## Log-файли
+*.log
+
+## Конфіденційні файли
+secrets.json
+
+## IDE специфічні
+*.sln.docstates
+
+## Папка publish
+publish/
+
+## Файли тестових результатів
+TestResult*/ 
+*.TestResults
+
+## Ignore build outputs
+*.dll
+*.exe
+*.pdb
+*.cache
