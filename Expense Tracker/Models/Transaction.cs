@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace Expense_Tracker.Models
 {
@@ -8,7 +9,7 @@ namespace Expense_Tracker.Models
         [Key]
         public int TransactionId { get; set; }
 
-        [Range(1,int.MaxValue,ErrorMessage ="Please select a category.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please select a category.")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
@@ -25,7 +26,7 @@ namespace Expense_Tracker.Models
         {
             get
             {
-                return Category == null ? "" : Category.Icon + " " + Category.Title;
+                return Category == null ? "" : Category.Title;
             }
         }
 
@@ -34,9 +35,10 @@ namespace Expense_Tracker.Models
         {
             get
             {
-                return ((Category == null || Category.Type == "Expense") ? "- " : "+ ") + Amount.ToString("C0");
+                CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+                var prefix = (Category == null || Category.Type == "Expense") ? "- " : "+ ";
+                return prefix + String.Format(culture, "{0:C0}", Amount);
             }
         }
-
     }
 }

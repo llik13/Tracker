@@ -23,7 +23,7 @@ namespace Expense_Tracker.Models
         {
             get
             {
-                return this.Icon + " " + this.Title;
+                return this.Title; // Убираем иконку, возвращаем только название
             }
         }
     }
